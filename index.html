@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Art Map of India</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet Map CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <h2>ART MAP OF INDIA</h2>
+        <p>Exploring India's artistic heritage...</p>
+    </div>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">
+            <span>✦</span>
+            ART MAP
+            <small>OF INDIA</small>
+        </div>
+
+        <nav id="nav-links">
+            <a href="#home">Home</a>
+            <a href="#map-section">Explore Map</a>
+            <a href="#timeline">Timeline</a>
+            <a href="#artworks">Artworks</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button id="theme-toggle" class="theme-toggle">
+                ☾ Dark Mode
+            </button>
+
+            <button id="nav-toggle" class="nav-toggle">
+                ☰
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+            <p class="eyebrow">A VISUAL ARCHIVE OF INDIAN HERITAGE</p>
+
+            <h1>
+                Discover the
+                <span>Art</span>
+                of India
+            </h1>
+
+            <p class="hero-description">
+                Travel through centuries of creativity, from prehistoric
+                rock paintings to magnificent temples, textiles and modern art.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#map-section" class="primary-btn">
+                    Explore the Map →
+                </a>
+
+                <a href="#timeline" class="secondary-btn">
+                    View Timeline
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-art">
+            <div class="art-circle"></div>
+            <div class="hero-symbol">ॐ</div>
+            <div class="hero-pattern">✦　❖　✦</div>
+        </div>
+
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats-section">
+        <div class="stat">
+            <strong id="stat-locations">0</strong>
+            <span>Heritage Locations</span>
+        </div>
+
+        <div class="stat">
+            <strong id="stat-periods">0</strong>
+            <span>Art Periods</span>
+        </div>
+
+        <div class="stat">
+            <strong id="stat-artworks">0</strong>
+            <span>Featured Artworks</span>
+        </div>
+
+        <div class="stat">
+            <strong>5000+</strong>
+            <span>Years of Creativity</span>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map-section" class="section">
+
+        <div class="section-heading">
+            <p class="eyebrow">GEOGRAPHY OF CREATIVITY</p>
+
+            <h2>Explore the <span>Art Map</span></h2>
+
+            <p>
+                Select a location to discover its history, artists,
+                art forms and cultural significance.
+            </p>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="map-toolbar">
+
+            <div class="search-box">
+                <span>⌕</span>
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search a location, artist or art form..."
+                >
+            </div>
+
+            <div id="filter-chips" class="filter-chips">
+                <button class="filter-chip active" data-category="all">
+                    All
+                </button>
+
+                <button class="filter-chip" data-category="prehistoric">
+                    Prehistoric
+                </button>
+
+                <button class="filter-chip" data-category="ancient">
+                    Ancient
+                </button>
+
+                <button class="filter-chip" data-category="medieval">
+                    Medieval
+                </button>
+
+                <button class="filter-chip" data-category="modern">
+                    Modern
+                </button>
+            </div>
+
+        </div>
+
+        <div class="map-layout">
+
+            <!-- Map -->
+            <div id="map-shell" class="map-shell">
+                <div id="map"></div>
+
+                <div class="map-label">
+                    <span class="map-dot"></span>
+                    Interactive Heritage Map
+                </div>
+            </div>
+
+            <!-- Location Cards -->
+            <div class="location-list">
+                <div class="list-heading">
+                    <h3>Featured Locations</h3>
+                    <span id="location-count">0 locations</span>
+                </div>
+
+                <div id="location-cards"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Timeline -->
+    <section id="timeline" class="section timeline-section">
+
+        <div class="section-heading">
+            <p class="eyebrow">A JOURNEY THROUGH TIME</p>
+
+            <h2>Indian Art <span>Timeline</span></h2>
+
+            <p>
+                Explore the evolution of Indian art across different periods.
+            </p>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="timeline-date">7000 BCE – 1000 BCE</div>
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+                    <img src="images/bhimbetka.jpg"
+                         alt="Prehistoric rock paintings">
+
+                    <div>
+                        <span class="period-tag">PREHISTORIC</span>
+
+                        <h3>Prehistoric Art</h3>
+
+                        <p>
+                            Early humans created paintings of animals,
+                            hunting scenes and daily life on rock shelters.
+                        </p>
+
+                        <button class="timeline-btn"
+                                data-location="bhimbetka">
+                            Explore Bhimbetka →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2600 BCE – 300 BCE</div>
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+                    <img src="images/sanchi.jpg"
+                         alt="Ancient Indian Buddhist art">
+
+                    <div>
+                        <span class="period-tag">ANCIENT</span>
+
+                        <h3>Indus and Buddhist Art</h3>
+
+                        <p>
+                            Terracotta figures, seals, stupas and sculptures
+                            developed during ancient Indian civilizations.
+                        </p>
+
+                        <button class="timeline-btn"
+                                data-location="sanchi">
+                            Explore Sanchi →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">300 CE – 1200 CE</div>
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+                    <img src="images/ajanta.jpg"
+                         alt="Ajanta cave paintings">
+
+                    <div>
+                        <span class="period-tag">CLASSICAL</span>
+
+                        <h3>Gupta and Classical Art</h3>
+
+                        <p>
+                            Cave paintings, refined sculpture and temple
+                            architecture reached remarkable development.
+                        </p>
+
+                        <button class="timeline-btn"
+                                data-location="ajanta">
+                            Explore Ajanta →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">1000 CE – 1700 CE</div>
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+                    <img src="images/khajuraho.jpg"
+                         alt="Khajuraho temple sculpture">
+
+                    <div>
+                        <span class="period-tag">MEDIEVAL</span>
+
+                        <h3>Medieval Indian Art</h3>
+
+                        <p>
+                            Temple architecture, bronze sculpture,
+                            miniature painting and decorative arts flourished.
+                        </p>
+
+                        <button class="timeline-btn"
+                                data-location="khajuraho">
+                            Explore Khajuraho →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">1700 CE – Present</div>
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+                    <img src="images/santiniketan.jpg"
+                         alt="Modern Indian art">
+
+                    <div>
+                        <span class="period-tag">MODERN</span>
+
+                        <h3>Modern Indian Art</h3>
+
+                        <p>
+                            Indian artists combined traditional influences
+                            with new styles, ideas and global movements.
+                        </p>
+
+                        <button class="timeline-btn"
+                                data-location="santiniketan">
+                            Explore Santiniketan →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Art Movements -->
+    <section class="section movements-section">
+
+        <div class="section-heading">
+            <p class="eyebrow">STYLES AND TRADITIONS</p>
+
+            <h2>Major Art <span>Movements</span></h2>
+        </div>
+
+        <div id="movement-cards" class="movement-grid"></div>
+
+    </section>
+
+    <!-- Regions -->
+    <section class="section regions-section">
+
+        <div class="section-heading">
+            <p class="eyebrow">CULTURAL LANDSCAPES</p>
+
+            <h2>Art Across <span>Regions</span></h2>
+        </div>
+
+        <div id="region-cards" class="region-grid"></div>
+
+    </section>
+
+    <!-- Artworks -->
+    <section id="artworks" class="section artworks-section">
+
+        <div class="section-heading">
+            <p class="eyebrow">MASTERPIECES OF INDIA</p>
+
+            <h2>Featured <span>Artworks</span></h2>
+
+            <p>
+                Discover important works that represent India's artistic legacy.
+            </p>
+        </div>
+
+        <div id="artwork-cards" class="artwork-grid"></div>
+
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about-section">
+
+        <div class="about-content">
+            <p class="eyebrow">ABOUT THE PROJECT</p>
+
+            <h2>Art is the memory of a civilization.</h2>
+
+            <p>
+                Art Map of India is an interactive educational platform
+                designed to explore the geographical and historical
+                development of Indian art.
+            </p>
+
+            <p>
+                From ancient cave paintings to modern artistic movements,
+                this project connects places, people, artworks and traditions
+                through an interactive digital experience.
+            </p>
+        </div>
+
+        <div class="about-symbol">
+            <span>✦</span>
+            <p>भारतम्</p>
+            <small>INDIAN HERITAGE</small>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">ART MAP OF INDIA</div>
+
+        <p>
+            An interactive journey through India's artistic heritage.
+        </p>
+
+        <p class="copyright">
+            © 2026 Art Map of India. Educational Project.
+        </p>
+    </footer>
+
+    <!-- Location Details Panel -->
+    <div id="location-panel-overlay"></div>
+
+    <aside id="location-panel"
+           class="location-panel"
+           aria-hidden="true">
+
+        <button id="panel-close" class="panel-close">
+            ×
+        </button>
+
+        <div id="panel-content"></div>
+
+    </aside>
+
+    <!-- Leaflet Map JavaScript -->
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
